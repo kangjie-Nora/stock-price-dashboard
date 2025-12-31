@@ -1,179 +1,120 @@
-# 股票价格仪表板 (Stock Price Dashboard)
+# Stock Price Dashboard
 
-一个使用 React + TypeScript + Tailwind CSS 构建的现代化股票价格监控仪表板。
+A modern stock price monitoring dashboard built with React, TypeScript, and Tailwind CSS.
 
-## 功能特性
+## Features
 
-### 核心功能 ✅
-- ✅ 股票数据表格显示（股票代码、价格、涨跌幅）
-- ✅ 使用 Tailwind CSS 的响应式设计
-- ✅ 实时数据获取（基于 Finnhub API）
+### Core Features ✅
+- ✅ Stock data table display (symbol, price, percentage change)
+- ✅ Responsive design using Tailwind CSS
+- ✅ Real-time data fetching (Yahoo Finance API)
 
-### 额外功能 🎁
-- ✅ 加载状态指示（加载动画）
-- ✅ 完整的错误处理（API 失败、无效股票代码等）
-- ✅ 搜索功能（添加新股票到监控列表）
-- ✅ 表格排序（点击表头可按股票代码、价格、涨跌幅排序）
-- ✅ 交互式图表（使用 Chart.js 显示价格对比）
-- ✅ 刷新数据功能
-- ✅ 移除股票功能（点击标签上的 × 按钮）
-- ✅ **自动刷新功能**（可配置时间间隔：10秒、30秒、1分钟、2分钟、5分钟）
-- ✅ **本地存储**（自动保存股票列表到浏览器 localStorage）
-- ✅ **数据导出**（导出为 CSV 格式）
-- ✅ **价格趋势指示器**（上涨/下跌箭头图标）
-- ✅ 美观的用户界面和流畅的交互体验
+### Additional Features 🎁
+- ✅ Loading state indicator (spinner animation)
+- ✅ Complete error handling (API failures, invalid stock symbols, etc.)
+- ✅ Search functionality (add new stocks to watchlist)
+- ✅ Table sorting (click column headers to sort by symbol, price, or percentage change)
+- ✅ Interactive charts (price comparison using Chart.js)
+- ✅ Refresh data functionality
+- ✅ Remove stock functionality (click × button on stock tags)
+- ✅ **Auto-refresh feature** (configurable intervals: 10s, 30s, 1m, 2m, 5m)
+- ✅ **Local storage** (automatically saves stock list to browser localStorage)
+- ✅ **Data export** (export to CSV format)
+- ✅ **Price trend indicators** (up/down arrow icons)
+- ✅ Beautiful user interface and smooth interactions
 
-## 技术栈
+## Tech Stack
 
-- **React 18** - UI 框架
-- **TypeScript** - 类型安全
-- **Vite** - 快速构建工具
-- **Tailwind CSS** - 实用优先的 CSS 框架
-- **Chart.js** - 图表库
-- **Yahoo Finance API** - 免费股票数据 API（无需 API 密钥）
+- **React 18** - UI framework
+- **TypeScript** - Type safety
+- **Vite** - Fast build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **Chart.js** - Charting library
+- **Yahoo Finance API** - Free stock data API (no API key required)
 
-## 快速开始
+## Quick Start
 
-### 1. 安装依赖
+### 1. Install Dependencies
 
 ```bash
 npm install
 ```
 
-### 2. 运行项目
+### 2. Run the Project
 
-项目使用 **Yahoo Finance API** 获取真实的股票数据，**无需配置 API 密钥**，可以直接运行：
-
-```bash
-npm run dev
-```
-
-**数据说明**：
-- 使用 Yahoo Finance 公开 API，无需注册或 API 密钥
-- 获取真实的实时股票数据
-- 如果 API 调用失败，会自动使用内置的演示数据作为备用方案
-
-### 3. 启动开发服务器
+The project uses **Yahoo Finance API** to fetch real stock data. **No API key configuration needed**. Just run:
 
 ```bash
 npm run dev
 ```
 
-应用将在 `http://localhost:5173` 启动
+**Data Notes**:
+- Uses Yahoo Finance public API, no registration or API key required
+- Fetches real-time stock data
+- Falls back to built-in demo data if API call fails
 
-### 4. 构建生产版本
+### 3. Build for Production
 
 ```bash
 npm run build
 ```
 
-构建产物将在 `dist` 目录中
+The build output will be in the `dist` directory.
 
-### 5. 预览生产构建
+### 4. Preview Production Build
 
 ```bash
 npm run preview
 ```
 
-## 部署
+## Usage
 
-### Vercel 部署（推荐）
+1. **View default stocks**: The app automatically loads data for AAPL, GOOGL, MSFT, TSLA, AMZN on startup
+2. **Add new stock**: Enter a stock symbol (e.g., AAPL, TSLA) in the search box and click "Add"
+3. **Sort table**: Click column headers (Symbol, Price, Change %) to sort, click again to toggle ascending/descending
+4. **View chart**: The chart automatically displays price comparison for all current stocks. Toggle with "Hide Chart"/"Show Chart" button
+5. **Refresh data**: Click "Refresh Data" button to get latest prices
+6. **Remove stock**: Click the × button on stock symbol tags to remove stocks
 
-1. 将代码推送到 GitHub 仓库
-2. 访问 [Vercel](https://vercel.com/)
-3. 导入您的 GitHub 仓库
-4. Vercel 会自动检测 Vite 项目并配置构建设置
-5. 如需配置环境变量，在项目设置中添加 `VITE_FINNHUB_API_KEY`
+## API Notes
 
-### Netlify 部署
+Yahoo Finance API (free, public API):
+- No API key required
+- Real-time stock data
+- Rate limits may apply for high-frequency requests
 
-1. 将代码推送到 GitHub 仓库
-2. 访问 [Netlify](https://www.netlify.com/)
-3. 选择 "New site from Git"
-4. 连接您的 GitHub 仓库
-5. 构建设置：
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-6. 点击 "Deploy site"
-
-### GitHub Pages 部署
-
-1. 安装 `gh-pages` 包：
-   ```bash
-   npm install --save-dev gh-pages
-   ```
-
-2. 在 `package.json` 中添加部署脚本：
-   ```json
-   "scripts": {
-     "deploy": "npm run build && gh-pages -d dist"
-   }
-   ```
-
-3. 在 `vite.config.ts` 中添加 base 路径（如果仓库名不是根路径）：
-   ```typescript
-   export default defineConfig({
-     base: '/your-repo-name/',
-     plugins: [react()],
-   })
-   ```
-
-4. 运行部署：
-   ```bash
-   npm run deploy
-   ```
-
-## 使用说明
-
-1. **查看默认股票**：应用启动时会自动加载 AAPL、GOOGL、MSFT、TSLA、AMZN 的数据
-2. **添加新股票**：在搜索框中输入股票代码（如 AAPL、TSLA），点击"添加"按钮
-3. **排序表格**：点击表格列头（股票代码、价格、涨跌幅）进行排序，再次点击可切换升序/降序
-4. **查看图表**：图表会自动显示当前所有股票的价格对比，可以点击"隐藏图表"/"显示图表"切换
-5. **刷新数据**：点击"刷新数据"按钮获取最新价格
-6. **移除股票**：点击股票代码标签上的 × 按钮可以移除该股票
-
-## API 限制
-
-Finnhub 免费 API 的限制：
-- 每分钟 60 次请求
-- 实时数据有延迟（约 15 分钟）
-- 仅限美国市场数据
-
-如需更高频率或实时数据，请考虑升级到付费计划。
-
-## 项目结构
+## Project Structure
 
 ```
 stock-price-dashboard/
 ├── src/
-│   ├── components/          # React 组件
-│   │   ├── StockTable.tsx   # 股票数据表格
-│   │   ├── StockChart.tsx   # 价格图表
-│   │   └── SearchBar.tsx    # 搜索输入框
-│   ├── services/            # API 服务
-│   │   └── stockApi.ts      # 股票数据获取逻辑
-│   ├── types/               # TypeScript 类型定义
-│   │   └── stock.ts         # 股票数据类型
-│   ├── App.tsx              # 主应用组件
-│   ├── main.tsx             # 应用入口
-│   └── index.css            # 全局样式
-├── index.html               # HTML 模板
-├── package.json             # 项目依赖
-├── tsconfig.json            # TypeScript 配置
-├── tailwind.config.js       # Tailwind CSS 配置
-├── vite.config.ts           # Vite 配置
-└── README.md                # 项目说明
+│   ├── components/          # React components
+│   │   ├── StockTable.tsx   # Stock data table
+│   │   ├── StockChart.tsx   # Price chart
+│   │   └── SearchBar.tsx    # Search input
+│   ├── services/            # API services
+│   │   └── stockApi.ts      # Stock data fetching logic
+│   ├── types/               # TypeScript type definitions
+│   │   └── stock.ts         # Stock data types
+│   ├── App.tsx              # Main app component
+│   ├── main.tsx             # App entry point
+│   └── index.css            # Global styles
+├── index.html               # HTML template
+├── package.json             # Project dependencies
+├── tsconfig.json            # TypeScript configuration
+├── tailwind.config.js       # Tailwind CSS configuration
+├── vite.config.ts           # Vite configuration
+└── README.md                # Project documentation
 ```
 
-## 许可证
+## License
 
 MIT License
 
-## 作者
+## Author
 
-康杰 (Kangjie)
+Kangjie
 
 ---
 
-**注意**：本项目仅用于演示和学习目的。股票数据仅供参考，不构成投资建议。
-
+**Note**: This project is for demonstration and learning purposes only. Stock data is for reference only and does not constitute investment advice.
