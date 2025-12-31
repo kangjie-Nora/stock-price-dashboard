@@ -1,56 +1,54 @@
-# 快速部署指南
+# Deployment Guide
 
-## 📋 前置要求
+## Deploy to Vercel (Recommended)
 
-- Node.js 和 npm（如果还没有，请先安装：https://nodejs.org/）
+Your code is now on GitHub: https://github.com/kangjie-Nora/stock-price-dashboard
 
-## 🚀 快速开始
+### Steps:
 
-### 1. 安装依赖
+1. **Go to Vercel**
+   - Visit: https://vercel.com/
+   - Click "Sign Up" or "Log In"
+   - Choose "Continue with GitHub" (use GitHub account)
 
-```bash
-npm install
-```
+2. **Import Project**
+   - After login, click "Add New..." → "Project"
+   - Find your repository: `kangjie-Nora/stock-price-dashboard`
+   - Click "Import" next to it
 
-### 2. 本地测试
+3. **Configure Project** (usually auto-detected)
+   - Framework Preset: Vite (should be auto-detected)
+   - Root Directory: `./` (default)
+   - Build Command: `npm run build` (should be filled)
+   - Output Directory: `dist` (should be filled)
 
-```bash
-npm run dev
-```
+4. **Deploy**
+   - Click "Deploy" button
+   - Wait 1-2 minutes
 
-访问 http://localhost:5173
+5. **Get Your URL**
+   - After deployment, you'll get a URL like:
+     - `https://stock-price-dashboard.vercel.app`
+   - This is your public application URL! ✅
 
-### 3. 部署到 GitHub
+## Alternative: Deploy to Netlify
 
-```bash
-# 初始化 Git（如果还没有）
-git init
+1. Visit: https://www.netlify.com/
+2. Sign in with GitHub
+3. Click "Add new site" → "Import an existing project"
+4. Select GitHub, then your repository
+5. Build settings:
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+6. Click "Deploy site"
 
-# 添加所有文件
-git add .
+## Done!
 
-# 提交
-git commit -m "Initial commit: Stock Price Dashboard"
+After deployment, you'll have a public URL that you can:
+- ✅ Share with anyone
+- ✅ Include in your assignment submission email
+- ✅ Showcase your work
 
-# 添加远程仓库（替换为您的仓库地址）
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+---
 
-# 推送到 GitHub
-git branch -M main
-git push -u origin main
-```
-
-### 4. 部署到 Vercel（最简单）
-
-1. 访问 https://vercel.com/ 并用 GitHub 登录
-2. 点击 "Import Project"
-3. 选择您的 GitHub 仓库
-4. 点击 "Deploy"
-5. 等待 1-2 分钟完成部署
-
-完成！🎉
-
-## 📝 完整说明
-
-详细的安装和部署步骤请查看：**安装和部署指南.md**
-
+**Important**: Use the deployed URL in your assignment submission, not `localhost:5173`
