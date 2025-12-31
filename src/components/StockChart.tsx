@@ -12,7 +12,7 @@ import {
 } from 'chart.js';
 import type { StockData } from '../types/stock';
 
-// 注册Chart.js组件
+// Register Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -37,7 +37,7 @@ export default function StockChart({ stocks }: StockChartProps) {
     );
   }
 
-  // 按价格排序，用于图表显示
+  // Sort stocks by price for chart display
   const sortedStocks = [...stocks].sort((a, b) => a.price - b.price);
 
   const data = {

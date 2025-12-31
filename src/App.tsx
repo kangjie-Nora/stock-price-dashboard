@@ -5,7 +5,7 @@ import SearchBar from './components/SearchBar';
 import { fetchStockQuote, fetchMultipleStockQuotes } from './services/stockApi';
 import type { StockData } from './types/stock';
 
-// 默认显示的股票列表
+// Default stock symbols to display
 const DEFAULT_STOCKS = ['AAPL', 'GOOGL', 'MSFT', 'TSLA', 'AMZN'];
 
 function App() {
@@ -33,7 +33,7 @@ function App() {
   const [autoRefresh, setAutoRefresh] = useState(true);
   const [autoRefreshInterval, setAutoRefreshInterval] = useState(30); // seconds
 
-  // 加载股票数据
+  // Load stock data
   const loadStocks = async (stockSymbols: string[]) => {
     if (stockSymbols.length === 0) {
       setStocks([]);
@@ -88,7 +88,7 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [autoRefresh, autoRefreshInterval, symbols.length]);
 
-  // 添加新股票
+  // Add new stock
   const handleAddStock = async (symbol: string) => {
     if (symbols.includes(symbol)) {
       setError(`Stock ${symbol} is already in the list`);
@@ -113,7 +113,7 @@ function App() {
     }
   };
 
-  // 移除股票
+  // Remove stock
   const handleRemoveStock = (symbol: string) => {
     setStocks((prev) => prev.filter((stock) => stock.symbol !== symbol));
     setSymbols((prev) => prev.filter((s) => s !== symbol));
